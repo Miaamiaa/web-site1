@@ -1,0 +1,1215 @@
+*{
+    scroll-behavior: smooth;
+}
+
+
+/* Основні стилі для сторінки */
+body {
+    font-family: Arial, sans-serif; /* Шрифт тексту на всій сторінці */
+    margin: 0 auto; /* Відсутність зовнішніх відступів сторінки */
+    padding: 0; /* Відсутність внутрішніх відступів сторінки */
+    max-width: 1440px ;
+    position: static;
+    scroll-behavior: smooth;
+}
+
+/* Стилі для верхньої частини сайту (header) */
+header {
+  
+    height: 27%;
+    /* Вирівнювання елементів по вертикалі */
+    background-color: #C09E94; /* Фоновий колір для header */
+}
+
+.head1 {
+    display: flex;
+    height: 170px;
+    position: relative;
+    justify-content: space-between;
+}
+ 
+@media(max-width: 300px) {
+
+   
+}
+
+.head2 {
+    text-align: center;
+    height: 105px;
+    background-color: #CCD2D2;
+}
+
+.menu-btn{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left:12;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+ 
+.menu-btn > span,
+.menu-btn > span::before,
+.menu-btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition-duration: .25s;
+}
+.menu-btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu-btn > span::after {
+  content: '';
+  top: 8px;
+}
+ 
+.menubox{
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 170px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: #ECEFF1;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  transition-duration: .25s;
+}
+ 
+.menu-item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: .25s;
+}
+.menu-item:hover {
+  background-color: #CFD8DC;
+}
+ 
+ 
+#menu-toggle{
+  opacity: 0;
+}
+ 
+#menu-toggle:checked ~ .menu-btn > span{
+  transform: rotate(45deg);
+}
+#menu-toggle:checked ~ .menu-btn > span::before{
+  top: 0;
+  transform: rotate(0);
+}
+#menu-toggle:checked ~ .menu-btn > span::after{
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu-toggle:checked ~ .menubox{
+  visibility: visible;
+  left: 0;
+  transition: left 0.25s, visibility 0s;
+}
+
+
+.menubox li a:target ~ #menu-toggle {
+    visibility: hidden;
+}
+
+
+/* Медіа-запити для мобільних пристроїв */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 900000;
+  }
+
+  .menu-btn > span,
+  .menu-btn > span::before,
+  .menu-btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #616161;
+    transition-duration: .25s;
+  }
+
+  .menu-btn > span::before {
+    content: '';
+    top: -10px;
+  }
+
+  .menu-btn > span::after {
+    content: '';
+    top: 10px;
+  }
+
+  .menubox {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 21vw; /* Ширина для мобільних */
+    height: 30vh;
+    margin: 0;
+    padding: 10vh 0;
+    list-style: none;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition: left 0.25s, visibility 0s 0.25s;
+  }
+
+  .menu-item {
+    font-size: 2vw;
+    padding: 2vh 6vw;
+    color:#333;
+  }
+
+   .menu-item:hover {
+    background-color: #CFD8DC;
+  }
+
+  #menu-toggle:checked ~ .menubox {
+    visibility: visible;
+    left: 0;
+    transition: left 0.25s, visibility 0s;
+  }
+}
+
+/* Для великих екранів */
+@media (min-width: 769px) {
+  .burger-menu {
+    display: none; /* Приховуємо бургер-меню на великих екранах */
+  }
+
+  
+}
+
+/* Ліва частина хедера з ідеєю та логотипом */
+.left-section {
+    display:flex; /* Використання Flexbox для вирівнювання фото та логотипу */
+     color: black;
+    align-items:center; /* Вирівнювання по вертикалі */
+   gap: 5px;
+    
+}
+
+/* Стилі для фото ідеї сайту (зображення boy.png) */
+.idea-image {
+    width: 130%; /* Ширина фото */
+    height:auto; /* Автоматичне вирівнювання висоти для збереження пропорцій */
+    margin-left:-5%;
+    margin-top: 14%;
+    min-width: 150px;
+}
+
+/* Стилі для логотипу та тексту компанії */
+.logo-text {
+    margin-left: 0px; /* Відступ між фото та логотипом */
+     display: flex;
+    flex-direction: column; /* Логотип і слоган у вертикальній колонці */
+    align-items: flex-start; /* Вирівнювання елементів по лівому краю */
+    justify-content: center; /* Центрування логотипу та слогану вертикально */
+    gap: 2px; /* Відстань між логотипом і слоганом */
+}
+
+.logo {
+    width: 67%; /* Ширина логотипу */
+    height: auto; /* Автоматичне вирівнювання висоти для збереження пропорцій */
+   
+    margin-left: -16%;
+}
+
+/* Стилі для слогану під логотsипом */
+.slogan {
+    font-family: Jura, cursive;
+    color: black;
+    font-size: 120% ;
+    margin-left: 15%;
+    margin-top: -14%;
+}
+
+
+    
+
+
+
+
+.between {
+    display: flex;
+    justify-content: space-between;
+    gap:15%;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Стилі для соціальних іконок у правому верхньому куті */
+.social-icons {
+   display: flex; /* Використання Flexbox для вирівнювання іконок у рядок */ 
+    justify-content: flex-end; /* Вирівнювання іконок праворуч */ 
+    size: 19%;
+    margin-top: 5%; /* Піднімає іконки вгору */ 
+    margin-right: 30%; /* Зсуває іконки вліво */ 
+}
+
+.social-icons img {
+    width: 7%; /* Ширина іконок соціальних мереж */
+     margin-left: 1%; /* Відступ між кожною іконкою */
+
+}
+
+/* Стилі для контактної інформації */
+.contact-info {
+    font-family: Itim,monospace; 
+    font-weight: bold; 
+    line-height: 0.7;
+    color: black; 
+    font-size:1.5vw; /* Зменшений розмір тексту для номерів телефону та email */ 
+    position: absolute; /* Абсолютне позиціонування */ 
+    top: 2%; /* Встановлює текст у верхній частині */ 
+   
+    right: 4%; 
+ 
+    text-align: right;  
+} 
+
+
+    
+    .social-icons img {
+        width: 6%; /* Збільшення іконок на менших екранах */
+    }
+
+/* Медіа-запит для ширини екрану 940px і менше */
+@media (max-width: 940px) {
+    .contact-info {
+        font-size: 2vw; /* Зменшення розміру тексту */
+        right: 2%; /* Корекція правого відступу */
+        top: 1%; /* Відступ зверху */
+    }
+
+    .social-icons img {
+        width: 5%; /* Зменшення іконок соціальних мереж */
+    }
+
+    .idea-image {
+        width: 90%; /* Зменшення фото boy */
+        margin-left: 0; /* Вирівнювання */
+    }
+
+    .logo {
+        width: 80%; /* Логотип зменшується пропорційно */
+    }
+}
+
+/* Медіа-запит для ширини екрану 939px і менше */
+@media (max-width: 939px) {
+    .between {
+        flex-direction: column; /* Іконки та контактна інформація в колонку */
+        align-items: center; /* Вирівнювання по центру */
+    }
+
+    .social-icons {
+        justify-content: center; /* Вирівнювання іконок по центру */
+        margin-right: 0; /* Зміщення праворуч більше не потрібно */
+        margin-top: 20px; /* Відступ зверху */
+    }
+
+    /* Центрування "logo-text" та "logo" на одному рівні з фото boy */
+    .left-section {
+        justify-content: center; /* Центрування лівої секції (логотип + фото) */
+        align-items: center; /* Вирівнювання по вертикалі */
+    }
+    
+    .logo-text {
+        align-items: center; /* Центрування логотипу та тексту */
+        text-align: center; /* Вирівнювання тексту по центру */
+        margin-left: 0; /* Відміна відступу зліва */
+    }
+
+    .logo {
+        margin-left: 0; /* Центрування логотипу */
+        width: 70%; /* Пропорційне зменшення логотипу */
+    }
+
+    .slogan {
+        margin-left: 0; /* Вирівнювання слогану по центру */
+        margin-top: 10px; /* Корекція відступу зверху */
+    }
+}
+
+/* Медіа-запит для ширини екрану 700px і менше */
+@media (max-width: 700px) {
+    .left-section {
+        justify-content: center; /* Центрування логотипу та тексту поруч із фото */
+    }
+
+    .logo-text {
+        text-align: center; /* Текст та логотип залишаються на рівні з фото */
+    }
+
+    .social-icons {
+        justify-content: center; /* Центрування соціальних іконок */
+        margin-right: 0;
+    }
+
+    .contact-info {
+        font-size: 2.5vw; /* Збільшення розміру шрифту на менших екранах */
+        right: 2%; /* Корекція відступу від правого краю */
+        top: 1%; /* Корекція відступу від верху */
+    }
+
+    .social-icons img {
+        width: 6%; /* Збільшення іконок на менших екранах */
+    }
+
+    .slogan {
+        font-size: 100%; /* Зменшення шрифту */
+        margin-left: 20%;
+    }
+
+    .idea-image {
+        width: 100%; /* Плавне збільшення ширини при зменшенні екрану */
+        margin-top: 5%; /* Коригування відступів */
+        margin-right: 5%;
+    }
+
+    .logo {
+        width: 100%;
+        margin-left: -20%;
+    }
+}
+
+/* Медіа-запит для ширини екрану 438px і менше */
+@media (max-width: 438px) {
+    .social-icons {
+        position: static; /* Забезпечує уникнення накладання на текст */
+        justify-content: center;
+        margin-top: 11px; /* Додає відступ зверху */
+        margin-right: 30%;
+    }
+
+    .contact-info {
+        font-size: 2vw; /* Зменшення розміру тексту для уникавання накладання */
+        right: 0%;
+        top: 1%;
+    }
+
+    .social-icons img {
+        width: 13%; /* Зменшено іконки для уникнення накладання */
+    }
+}
+
+
+
+/* Медіа-запит для ширини екрану 320px і менше */
+@media (max-width: 320px) {
+    .contact-info {
+        font-size: 3.5vw; /* Максимальне зменшення розміру для дуже маленьких екранів */
+        right: 1%;
+        top: 1%;
+    }
+}
+
+
+
+/* Навігаційне меню під контактною інформацією */
+  
+.nav {
+    
+ 
+    display: flex; /* Використання Flexbox для вирівнювання елементів у рядок */
+    align-items: center; /* Вирівнювання по вертикалі */
+    justify-content: flex-end; /* Вирівнювання елементів зліва (можна змінити на flex-end для вправо) */
+    gap: 7%; /* Відстань між елементами (можна регулювати) */
+    margin: 4%; /* Зовнішній відступ для всієї навігації (можна регулювати) */
+    margin-bottom: 0px;
+}
+
+.nav a {
+    margin: 10px 0; /* Відступ зверху і знизу для кожного посилання */
+    text-decoration: none; /* Прибирає підкреслення */
+    color: black; /* Робить текст чорним */
+    font-family: Arial, sans-serif; /* Задає шрифт (можна змінити на потрібний) */
+    font-size: 22px;
+}
+
+/* Стилі для ширини екрану від 320px до 776px */
+@media (max-width: 776px) {
+    .nav {
+        flex-wrap: wrap; /* Дозволяє переносити елементи на новий рядок */
+        justify-content: space-between; /* Робить відстань між елементами рівномірною */
+    }
+
+    .nav a {
+        flex: 1 1 20%; /* Робить кожен елемент займати 30% ширини рядка */
+        text-align: center; /* Вирівнювання тексту по центру */
+    }
+
+    .nav a:nth-child(4), /* Вибираємо 4-й і 5-й елементи для переносу */
+    .nav a:nth-child(5) {
+        flex-basis: 45%; /* Задаємо ширину для перенесених елементів */
+        margin-top: 1px; /* Додаємо відступ зверху для перенесених елементів */
+    }
+}
+
+
+
+/* Стилі для головного зображення (по центру сторінки) */
+.main-image {
+    width: 100%; /* Зображення заповнює всю ширину контейнера */
+    height: auto; /* Автоматичне вирівнювання висоти для збереження пропорцій */
+    margin-top: 10px; /* Відступ зверху до зображення */
+   
+}
+
+/* Контейнер з текстом та логотипом на головному фото */
+.overlay {
+    color: black;
+    position: relative; /* Відносне позиціонування для розміщення тексту на фото */
+    text-align: right; /* Вирівнювання тексту по правому краю */
+}
+
+/* Логотип на головному фото */
+.center-logo {
+    position: absolute; /* Абсолютне позиціонування для логотипу на фото */
+    width: 23%; /* Ширина логотипу */
+    right: 25%; /* Відступ від правого краю */
+    margin-top:-56%;
+    z-index: 1; /* Забезпечує, що логотип знаходиться поверх зображення */
+   
+}
+
+/* Текстовий блок (цитата) на головному зображенні */
+.quote {
+   
+    position: absolute; /* Абсолютне позиціонування для тексту на фото */
+    margin-top: -51%;
+    color: black;
+    right: 1%; /* Відступ праворуч */
+    margin-left: 74%;
+    font-size:1.6vw; /* Розмір тексту цитати */
+    text-shadow: 1px 1px 2px black; /* Тінь для кращої читабельності на зображенні */
+    max-width: 44%;
+    text-align: right;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 7px; /* Відступ між буквами (можна регулювати) */
+}
+
+
+@media(max-width: 558px) {
+    .quote {
+        font-size: 1.4vw;
+        max-width: 25%;
+        letter-spacing: 2px;
+    }
+}
+
+
+
+.about {
+   
+    text-align: center; /* Вирівнювання заголовка по центру */
+    font-family: 'Literata', serif;
+    color: black; /* Колір тексту */
+    line-height: 1; /* Висота рядка */
+    font-size: 190%;
+    width: 90%; /* Текст займає 80% ширини */
+    margin: 0 auto; /* Центрує текст */
+    font-weight: 100;
+    letter-spacing: 5%;
+}
+
+@media(max-width: 318px) {
+  .about {
+    font-size: 80%;
+  }
+
+
+
+}
+
+
+.line1 {
+    display: flex;
+    justify-content: center;
+    color: black;
+  
+    font-weight: 80%;
+    margin:0 auto;
+    margin-top: 2px; /* Відступ знизу для відстані до about1 */
+    width: 80%; /* Ширина лінії займає 80% від ширини контейнера */
+    margin-left: 10%; /* Відступ зліва 10%, щоб залишити рівний простір з обох боків */
+    margin-right: 10%; /* Відступ справа 10% */
+}
+
+.about1 {
+   
+    text-align: center; /* Вирівнювання тексту по центру */
+    font-family: 'Literata', serif;
+    color: black; /* Колір тексту */
+    font-size: 18px; /* Розмір шрифту */
+    line-height: 1.5; /* Висота рядка */
+    width: 67%; /* Текст займає 80% ширини */
+    margin: 0 auto; /* Центрує текст */
+}
+
+@media (max-width: 456px){
+
+.about1 {
+    font-size: 12px;
+}
+
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .nav {
+        gap: 10px;
+    }
+    .nav a {
+        font-size: 18px; /* Зменшуємо шрифт */
+    }
+}
+
+.line2 {
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin-left: 172px;
+    margin: 0 auto;
+    font-weight: 80%;
+    margin-top: -2px; /* Відступ зверху для відстані до about1 */
+    width: 80%; /* Ширина лінії займає 80% від ширини контейнера */
+    margin-left: 10%; /* Відступ зліва 10%, щоб залишити рівний простір з обох боків */
+    margin-right: 10%; /* Відступ справа 10% */
+}
+
+.about2 {
+    text-align: center; /* Вирівнювання тексту по центру */
+    font-family: 'Literata', serif; /* Шрифт */
+    color: black; /* Колір тексту */
+    font-size: 18px; /* Розмір шрифту */
+    line-height: 1.5; /* Висота рядка */
+     width: 67%; /* Текст займає 80% ширини */
+    margin: 0 auto; /* Центрує текст */
+}
+
+.twofoto {
+    display: flex; /* Використання Flexbox */
+    justify-content: center; /* Вирівнювання по горизонталі з однаковим відступом між зображеннями */
+    align-items: center; /* Вирівнювання по вертикалі */
+    z-index: 1;
+    padding: 0 5%; /* Відступ зліва і справа */
+    margin-top: 2%;
+}
+
+
+@media(max-width: 456px) {
+    .about2 {
+    font-size: 12px;
+}
+}
+.twofoto img {
+    display: flex;
+    width: 45%; /* Встановлення ширини в процентах для автоматичного масштабування */
+    height: auto; /* Автоматичне збереження пропорцій */
+    margin: 0 30px;
+    max-width: 100%; /* Обмеження максимальної ширини зображення */
+    z-index: auto;  
+}
+
+.girl {
+    display: flex;
+    position: relative; /* Відносне позиціонування для переміщення */
+    width: 35%; /* Можна змінювати розмір */
+    height: 42%; /* Автоматична висота для збереження пропорцій */
+    top: 7%; /* Зміщення вниз; можна змінювати значення для переміщення */
+    float: left; /* Розміщення зліва */
+    margin-left: 6%;
+    z-index: 1;
+}
+
+.boy2 {
+    display: flex;
+    position: relative; /* Відносне позиціонування для переміщення */
+    width: 35%; /* Можна змінювати розмір */
+    height: 42%; /* Автоматична висота для збереження пропорцій */
+    top: 7%; /* Зміщення вниз; можна змінювати значення для переміщення */
+    float: right; /* Розміщення справа */
+    margin-right: 6%;
+    z-index: 1;
+}
+
+@media(max-width: 576px) {
+
+.twofoto {
+     display: flex; /* Використання Flexbox */
+    flex-direction: column; /* Розташування зображень один під одним (по вертикалі) */
+    justify-content: center; /* Центрування по вертикалі */
+    align-items: center; /* Центрування по горизонталі */
+    padding: 0 5%; /* Відступ зліва і справа */
+    margin-top: 2%;
+    z-index: 1;
+}
+ .twofoto img {
+     width: 50%; /* Ширина кожного зображення */
+    height: auto; /* Автоматичне збереження пропорцій */
+    margin: 15px 0; /* Відступ зверху і знизу для створення відстані між зображеннями */
+    max-width: 100%; /* Обмеження максимальної ширини зображення */
+   z-index: auto;
+ }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.advantage {
+
+     text-align: center; /* Вирівнювання заголовка по центру */
+    font-family: 'Literata', serif; /* Шрифт */
+    color: black; /* Колір тексту */
+    line-height: 1.5; /* Висота рядка */
+    font-size: 68px;
+    width: 70%; /* Текст займає 80% ширини */
+    margin: 0 auto; /* Центрує текст */
+    margin-top: 6%;
+}
+
+/* Медіа-запити для ширини між 320px і 500px */
+@media (max-width: 550px) {
+    .advantage {
+        font-size: 40px; /* Зменшення розміру шрифту на малих екранах */
+        width: 90%; /* Збільшення ширини тексту для невеликих екранів */
+        letter-spacing: 5px; /* Зменшення міжсимвольного відступу */
+        line-height: 1.4; /* Зменшена висота рядка */
+    }
+}
+
+@media (max-width: 320px) {
+    .advantage {
+        font-size: 32px; /* Ще більше зменшення розміру шрифту для дуже малих екранів */
+        width: 100%; /* Повна ширина для маленьких екранів */
+        letter-spacing: 3px; /* Зменшення міжсимвольного відступу для маленьких екранів */
+        line-height: 1.2; /* Невелика висота рядка */
+    }
+}
+
+.three{
+     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Дозволяє елементам переноситись на новий рядок при зменшенні ширини екрану */
+    gap: 20px; /* Відступ між колонками */
+    padding: 20px; /* Внутрішній відступ */
+}
+
+.three img {
+    width: 80px; /* Ширина зображень */
+    height: auto; /* Пропорційне збереження висоти зображень */
+}
+
+.Colums1, .Colums2, .Colums3, .Colums4 {
+    flex: 1 1 22%; /* Задаємо колонкам однаковий розмір, але дозволяємо їм змінюватися */
+    text-align: center;
+    background-color: #f2f2f2; /* Колір фону для кожної колонки */
+    padding: 10px;
+}
+
+
+
+.Colums1 img {
+    width: 90px; /* Задати ширину зображення */
+    display: block; /* Встановлює зображення як блок */
+    margin: 0 auto; /* Центрування зображень */
+    margin-top: 8px; /* Відстань над зображенням (можна змінити на будь-яке значення) */
+    margin-bottom: -2px; /* Зменшення відстані під зображенням */
+    height: 70px;
+}
+
+.Colums2 img {
+    width: 90px; /* Задати ширину зображення */
+    height: 70px;
+    display: block; /* Встановлює зображення як блок */
+    margin: 0 auto; /* Центрування зображень */
+    margin-top: 8px; /* Відстань над зображенням (можна змінити на будь-яке значення) */
+    margin-bottom: -2px; /* Зменшення відстані під зображенням */
+}
+
+.Colums3 img {
+    width: 90px; /* Задати ширину зображення */
+    height: 70px;
+    display: block; /* Встановлює зображення як блок */
+    margin: 0 auto; /* Центрування зображень */
+    margin-top: 8px; /* Відстань над зображенням (можна змінити на будь-яке значення) */
+    margin-bottom: -2px; /* Зменшення відстані під зображенням */
+}
+
+.Colums4 img {
+    width: 90px; /* Задати ширину зображення */
+    display: block; /* Встановлює зображення як блок */
+    margin: 0 auto; /* Центрування зображень */
+    height: 70px;
+    margin-top: 8px; /* Відстань над зображенням (можна змінити на будь-яке значення) */
+    margin-bottom: -2px; /* Зменшення відстані під зображенням */
+}
+
+.Colums1 p, .Colums2 p, .Colums3 p,.Colums4 p{
+     margin-top: 31px; /* Зменшення відстані над заголовком */
+    margin-bottom: 14px; /* Зменшення відстані під заголовком */
+     font-family: 'Literata', serif; /* Шрифт */
+    font-weight: 100px;
+}
+
+
+@media (max-width: 768px) {
+    .Colums1, .Colums2, .Colums3, .Colums4 {
+        flex: 1 1 48%; /* Зменшуємо ширину колонок при середній ширині екрану */
+    }
+}
+
+@media (max-width: 480px) {
+    .Colums1, .Colums2, .Colums3, .Colums4 {
+        flex: 1 1 100%; /* Колонки будуть займати всю ширину екрану на мобільних пристроях */
+    }
+}
+
+.custom-box {
+    background-color: #C09E94;
+    padding: 25px;
+}
+  
+  .section-header h1 {
+   text-align: center; /* Вирівнювання тексту по центру */
+    font-family: 'Literata', serif; /* Шрифт */
+    color: black; /* Колір тексту */
+    font-size: 60px; /* Розмір шрифту */
+    line-height: 2; /* Висота рядка */
+     width: 67%; /* Текст займає 80% ширини */
+    margin: 0 auto; /* Центрує текст */
+    text-align: center;
+    margin-bottom:23px;
+    letter-spacing: 10px;
+    z-index: 10;
+}
+
+.section-header {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Медіа-запити для ширини між 320px і 500px */
+@media (max-width: 500px) {
+    .section-header h1 {
+        font-size: 40px; /* Зменшення розміру шрифту на малих екранах */
+        width: 90%; /* Збільшення ширини тексту для невеликих екранів */
+        letter-spacing: 5px; /* Зменшення міжсимвольного відступу */
+        line-height: 1.4; /* Зменшена висота рядка */
+    }
+}
+
+@media (max-width: 320px) {
+    .section-header h1 {
+        font-size: 32px; /* Ще більше зменшення розміру шрифту для дуже малих екранів */
+        width: 100%; /* Повна ширина для маленьких екранів */
+        letter-spacing: 3px; /* Зменшення міжсимвольного відступу для маленьких екранів */
+        line-height: 1.2; /* Невелика висота рядка */
+    }
+}
+
+
+section {
+    
+   
+    background-color: #91524B;
+    position: relative;
+    overflow: hidden;
+}
+#myVideo {
+    left:0;
+    width: 100vw;
+    height: 80%;
+    top:0;
+   
+    z-index: 5;
+}
+
+.add-photo {
+        display: flex;
+    justify-content: center;
+    width: 100%; /* Контейнер займає всю ширину сторінки */
+    height: 70%;
+
+    margin: 20px auto; /* Відступ зверху і знизу контейнера */
+    padding: 0 2%; /* Відступи по 5% зліва і справа */
+    box-sizing: border-box; /* Врахування padding у ширині контейнера */
+ 
+}
+
+.add-photo img {
+
+   max-width: 90%; /* Зображення займе до 90% ширини контейнера */
+    
+}
+
+
+.clubs-container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 52;
+}
+
+
+
+  
+.club-card {
+    
+    flex: 1 1 calc(33.33% - 40px); /* Три елементи в рядок */
+    text-align: center;
+    padding: 10px;
+}
+  
+.club-card .image-wrapper {
+    position: relative;
+   margin: 0 auto;
+}
+
+.club-card .club-image {
+    
+    max-width: 200px;
+    height: auto;
+}
+.club-title {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    letter-spacing: 2px;
+  }  
+
+.image-wrapper {
+
+
+    width: 220px; /* Ширина контейнера */
+    height: auto; /* Висота контейнера */
+    background-image: url('images/рамка.png'); /* Встановлюємо зображення рамки як фон */
+    background-size: cover; /* Масштабування рамки по всій площі контейнера */
+    background-position: center; /* Центрування рамки */
+    position: relative; /* Для позиціонування вмісту */
+}
+
+  /* Медіа-запити для адаптації */
+  @media (max-width: 768px) {
+    .club-card {
+      flex: 1 1 calc(50% - 40px); /* Два елементи в рядок */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .club-card {
+      flex: 1 1 100%; /* Один елемент в рядок */
+    }
+  }
+  
+
+
+
+
+.pricing {
+     font-family: "Faustina", serif;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #FFDAB9;
+}
+.pricing h1 {
+    font-size: 37px;
+    margin-bottom: 4%;
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Відстань між картками */
+}
+
+.pricing-card {
+    position: relative;
+    height: 450px;
+    background-color: #C1AC5B;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px; /* Ширина картки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.pricing-card h2 {
+    background-color: #CE567C;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px; /* Внутрішній відступ заголовка */
+    margin-top: 20px; /* Відстань від верхнього краю картки */
+    text-align: center;
+
+}
+
+.pricing-card ul {
+    background-color: #F4CFA3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 19px; /* Внутрішній відступ заголовка */
+    margin-top: 15px; /* Відстань від верхнього краю картки */
+}
+
+.pricing-card li {
+    text-align: left;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px); /* Легкий підйом при наведенні */
+}
+
+.price {
+      font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    background-color:#F0849E ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px; /* Внутрішній відступ для ціни */
+    margin-top: 15px; /* Відстань між заголовком і блоком ціни */
+    text-align: center;
+}
+
+
+.btn {
+    background-color: #FF9454;
+     color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* Позиціюємо кнопку всередині картки */
+    bottom: 20px; /* Відстань до нижнього краю картки */
+    left: 50%; /* Центруємо кнопку по горизонталі */
+    transform: translateX(-50%); /* Вирівнювання кнопки по центру */
+
+}
+
+.btn:hover {
+    background-color: #218838; /* Зміна кольору кнопки при наведенні */
+}
+
+.pricing-card:hover {
+    background-color: #F77A28;
+}
+
+.custom-list {
+     list-style: none;
+    padding: 0;
+    margin-top: 20px; /* Відстань між блоком ціни і списком */
+}
+
+.custom-list li {
+  position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px; /* Відстань між елементами списку */
+}
+
+
+
+.footer {
+    display: flex;
+    flex-direction: column; /* Елементи йдуть у вертикальному напрямку */
+    align-items: center; /* Центрування по горизонталі */
+    justify-content: center; /* Центрування по вертикалі */
+    background-color: #F2F2ED;
+    padding: 10px; /* Зменшення внутрішніх відступів для більш акуратного вигляду */
+    font-size: 15px; /* Розмір тексту */
+    color: #333;
+    font-family: "Faustina", serif;
+    color: black;
+    width: 100%; /* Футер займає всю ширину сторінки */
+    height: 500px;
+    padding-bottom: -60%;
+    box-sizing: border-box; /* Включає padding та border в загальну ширину */
+}
+
+.footer p {
+     margin: 3px 0; /* Відступ між абзацами */
+    font-size: 190%; /* Розмір тексту */
+    letter-spacing: 0.5px; /* Відстань між літерами */
+    color: black;
+}
+
+.social-icons2 {
+   display: flex;
+    justify-content: center; /* Вирівнювання іконок по центру */
+    margin-top: 20px; /* Відступ зверху перед іконками */
+    gap: 15px; /* Відстань між іконками */
+
+}
+
+.social-icons2 img {
+     width: 5%; /* Фіксована ширина для іконок */
+    height: auto; /* Збереження пропорційності */
+  
+}
+
+.mafone {
+    background-color: #F2F2ED; /* Задаємо колір фону */
+    width: 100%; /* Розтягуємо елемент на всю ширину */
+    padding: 20px; /* Встановлюємо відступи всередині елемента, щоб вміст не стикався зі стінами */
+    box-sizing: border-box; /* Забезпечує, що ширина і padding не перевищують 100% ширини */
+
+}
+
+/* Медіа-запити для ширини від 680px до 320px */
+@media (max-width: 680px) {
+    .footer p {
+        font-size: 150%; /* Зменшення розміру шрифту для зручності перегляду на менших екранах */
+    }
+
+    .footer p strong {
+        display: block; 
+        text-align: /* Телефонні номери будуть йти по одному на кожному рядку */
+    }
+
+    .footer u {
+        display: block; /* Встановлюємо кожен номер телефону на окремий рядок */
+        margin-bottom: 10px; /* Відступ між номерами */
+    }
+
+    .footer p:last-child {
+        word-wrap: break-word; /* Дозволяє тексту переноситися на наступний рядок, якщо він виходить за межі екрану */
+        text-align: center; /* Центрування пошти на малих екранах */
+    }
+}
+
+@media (max-width: 320px) {
+    .footer p {
+        font-size: 110%; /* Ще більше зменшення розміру шрифту на дуже маленьких екранах */
+    }
+
+    .footer u {
+        margin-bottom: 8px; /* Менший відступ між номерами для дуже малих екранів */
+    }
+}
+
+/* Загальні стилі для форми */
+#contact {
+    font-family: 'Literata', serif;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    top: -30px;
+    font-family: Arial, sans-serif;
+    color: #564948;
+}
+
+form {
+     font-family: 'Literata', serif;
+    background-color: #ffdfb4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+legend {
+    color: #564948 ;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
+
+label {
+    color: #564948 ;
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Стилі для кнопки Submit */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #6c3f39 ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.submit-btn:hover {
+    background-color: #82e0aa; /* Колір кнопки при наведенні */
+}
+
